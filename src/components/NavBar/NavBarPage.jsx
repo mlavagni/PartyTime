@@ -30,14 +30,7 @@ export default function NavBarPage() {
           <Typography variant="h6" className={classes.title}>
             Home
           </Typography>
-          {/* <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton> */}
+
           <Typography variant="h6" className={classes.title}>
             Friends
           </Typography>
@@ -45,14 +38,15 @@ export default function NavBarPage() {
             Events
           </Typography>
 
-          {/* <Button color="inherit">Login</Button> */}
-          <Link to="/api/users/login" className="NavBar-link">
-            LOG IN
-          </Link>
-
-          <Link to="/api/users/signup" className="NavBar-link">
-            Sign Up
-          </Link>
+          <div>
+            <Link to="/login" className="NavBar-link">
+              LOG IN
+            </Link>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <Link to="/signup" className="NavBar-link">
+              SIGN UP
+            </Link>
+          </div>
         </Toolbar>
       </AppBar>
     </div>
