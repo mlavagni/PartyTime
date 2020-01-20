@@ -4,58 +4,58 @@ const SALT_ROUNDS = 6;
 
 const Schema = mongoose.Schema;
 
-// let friendSchema = new Schema({
-//   name: {
-//     type: String,
-//     required: true
-//   },
-//   phone: {
-//     type: String,
-//     required: true
-//   },
-//   email: {
-//     type: String
-//   }
-// });
+let friendsSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  phone: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String
+  }
+});
 
-// let eventSchema = new Schema({
-//   name: {
-//     type: String,
-//     required: true
-//   },
-//   date: {
-//     date: {
-//       type: Date
-//     }
-//   },
-//   startTime: {
-//     type: String
-//   },
-//   endTime: {
-//     type: String
-//   },
-//   address: {
-//     type: String
-//   },
-//   guestList: {
-//     type: []
-//   },
-//   status: {
-//     type: Boolean
-//   },
-//   accessCode: {
-//     type: []
-//   }
-// });
+let eventsSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  date: {
+    date: {
+      type: Date
+    }
+  },
+  startTime: {
+    type: String
+  },
+  endTime: {
+    type: String
+  },
+  address: {
+    type: String
+  },
+  guestList: {
+    type: []
+  },
+  status: {
+    type: Boolean
+  },
+  accessCode: {
+    type: String
+  }
+});
 
 let userSchema = new Schema(
   {
     name: String,
     email: { type: String, required: true, lowercase: true, unique: true },
-    password: String
-    // phone: String,
-    // events: [articleSchema],
-    // friends: [wishListSchema]
+    password: String,
+    phone: String,
+    events: [eventsSchema],
+    friends: [friendsSchema]
   },
   {
     timestamps: true

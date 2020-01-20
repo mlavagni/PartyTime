@@ -2,17 +2,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
 
-class SignupForm extends Component {
+class AddFriendForm extends Component {
   state = {
     name: "",
     email: "",
-    phone: "",
-    password: "",
-    passwordConf: ""
+    phone: ""
   };
 
   handleChange = e => {
-    this.props.updateMessage("");
+    // this.props.updateMessage("");
     this.setState({
       // Using ES2015 Computed Property Names
       [e.target.name]: e.target.value
@@ -22,30 +20,31 @@ class SignupForm extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     try {
-      await userService.signup(this.state);
-      // Let <App> know a user has signed up!
-      this.props.handleSignupOrLogin();
-      // Successfully signed up - show GamePage
-      this.props.history.push("/");
+      await fetch("/api/friends/create", {
+        method: "POST",
+        headers: new Headers({ "Content-Type": "application/json" }),
+        body: JSON.stringify({
+          friend: this.state,
+          userEmail: this.props.user.email
+        })
+      });
+
+      // this.props.history.push("/");
     } catch (err) {
+      console.log(err);
       // Invalid user data (probably duplicate email)
-      this.props.updateMessage(err.message);
+      // this.props.updateMessage(err.message);
     }
   };
 
   isFormInvalid() {
-    return !(
-      this.state.name &&
-      this.state.email &&
-      this.state.phone &&
-      this.state.password === this.state.passwordConf
-    );
+    return !(this.state.name && this.state.email && this.state.phone);
   }
 
   render() {
     return (
       <div>
-        <header className="header-footer">Sign Up</header>
+        <header className="header-footer">Add Friend</header>
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <div className="col-sm-12">
@@ -83,40 +82,16 @@ class SignupForm extends Component {
               />
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Password"
-                value={this.state.password}
-                name="password"
-                onChange={this.handleChange}
-              />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Confirm Password"
-                value={this.state.passwordConf}
-                name="passwordConf"
-                onChange={this.handleChange}
-              />
-            </div>
-          </div>
+
           <div className="form-group">
             <div className="col-sm-12 text-center">
               <button
                 className="btn btn-default"
                 disabled={this.isFormInvalid()}
               >
-                Sign Up
+                Save
               </button>
               &nbsp;&nbsp;
-              <Link to="/">Cancel</Link>
             </div>
           </div>
         </form>
@@ -125,4 +100,4 @@ class SignupForm extends Component {
   }
 }
 
-export default SignupForm;
+export default AddFriendForm;

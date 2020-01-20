@@ -3,8 +3,7 @@ const jwt = require("jsonwebtoken");
 const SECRET = process.env.SECRET;
 
 module.exports = {
-  index,
-  // create,
+  // index,
   login,
   signup
   // show,
@@ -14,6 +13,7 @@ module.exports = {
 async function login(req, res) {
   try {
     const user = await User.findOne({ email: req.body.email });
+    console.log(user);
     if (!user) return res.status(401).json({ err: "bad credentials" });
     user.comparePassword(req.body.pw, (err, isMatch) => {
       if (isMatch) {
@@ -43,14 +43,14 @@ async function signup(req, res) {
   }
 }
 
-async function index(req, res) {
-  try {
-    const userIndex = await User.find({});
-    res.status(201).json(userIndex);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-}
+// async function index(req, res) {
+//   try {
+//     const userIndex = await User.find({});
+//     res.status(201).json(userIndex);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// }
 
 /*--- helper functions ---*/
 

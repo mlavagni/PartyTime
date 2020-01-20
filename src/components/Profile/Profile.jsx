@@ -1,12 +1,12 @@
 import React from "react";
 
-function Friends() {
+function Profile() {
   // map here
   // {const scoreUi = student.scores.map((score, idx) => (
   //   <Score scores={score} />
   //   ))}
 
-  return <div>hello Friends</div>;
+  return <div>hello Profile</div>;
 }
 
-export default Friends;
+export default Profile;
