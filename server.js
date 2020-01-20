@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname, "build")));
 // app.use("/api", usersRouter);
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/friends", require("./routes/api/friends"));
+app.use("/api/events", require("./routes/api/events"));
 
 // The following "catch all" route (note the *)is necessary
 // for a SPA's client-side routing to properly work

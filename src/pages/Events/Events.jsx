@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
-import FriendsForm from "../../components/Friends/AddFriendForm";
-// import FriendList from "../../components/Friends/AddFriendForm";
+import EventsForm from "../../components/Events/AddEventForm";
+// import EventList from "../../components/Events/AddEventForm";
 
-class Friend extends Component {
+class Events extends Component {
   state = {
-    friends: []
+    events: []
   };
 
   componentDidMount() {
     console.log(this.props);
-    fetch("/api/friends", {
+    fetch("/api/events", {
       method: "POST",
       headers: new Headers({ "Content-Type": "application/json" }),
       body: JSON.stringify({ email: this.props.user.email })
@@ -22,20 +22,23 @@ class Friend extends Component {
       .then(jsonData => {
         console.log(jsonData);
         this.setState({
-          friends: jsonData
+          events: jsonData
         });
       });
   }
   render() {
-    let friends = null;
-    if (this.state.friends.length) {
-      friends = this.state.friends.map((ele, idx) => {
+    let events = null;
+    if (this.state.events.length) {
+      events = this.state.events.map((ele, idx) => {
         return (
           // <div key={idx}>
           <tr key={idx}>
             <td>{ele.name}</td>
-            <td>{ele.email}</td>
-            <td>{ele.phone}</td>
+            <td>{ele.date}</td>
+            <td>{ele.startTime}</td>
+            <td>{ele.endTime}</td>
+            <td>{ele.address}</td>
+            <td>{ele.accessCode}</td>
             <td>
               <button>x</button>
             </td>
@@ -47,22 +50,24 @@ class Friend extends Component {
 
     return (
       <div>
-        <h1>friends</h1>
-        <FriendsForm user={this.props.user} />
+        <h1>Events</h1>
+        <EventsForm user={this.props.user} />
         <table>
           <thead>
             <tr>
-              <th>First Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Delete</th>
+              <th>Event Name</th>
+              <th>Date</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>Address</th>
+              <th>Access Code</th>
             </tr>
           </thead>
-          <tbody>{friends}</tbody>
+          <tbody>{events}</tbody>
         </table>
       </div>
     );
   }
 }
 
-export default Friend;
+export default Events;

@@ -19,7 +19,8 @@ import Profile from "./components/Profile/Profile";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Friends from "./pages/Friends/Friends";
-import Events from "./components/Events/Events";
+import Events from "./pages/Events/Events";
+// import Events from "./components/Events/Events";
 
 import "./App.css";
 
@@ -77,7 +78,11 @@ class App extends Component {
             exact
             render={props => <Friends user={this.state.user} />}
           />
-          <Route path="/events" exact render={props => <Events />} />
+          <Route
+            path="/events"
+            exact
+            render={props => <Events user={this.state.user} />}
+          />
           <Route
             path="/signup"
             exact
