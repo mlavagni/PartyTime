@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
 
-class AddFriendForm extends Component {
+class ProfileUpdateForm extends Component {
   state = {
     name: "",
-    email: "",
-    phone: ""
+    phone: "",
+    email: ""
   };
 
   handleChange = e => {
@@ -20,21 +20,14 @@ class AddFriendForm extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     try {
-      await fetch("/api/friends/create", {
+      await fetch("/api/user/search", {
         method: "POST",
         headers: new Headers({ "Content-Type": "application/json" }),
         body: JSON.stringify({
-          friend: this.state,
+          user: this.state,
           userEmail: this.props.user.email
         })
-      })
-        .then(response => {
-          return response.json();
-        })
-        .then(data => {
-          this.props.friends(data);
-          console.log(data);
-        });
+      });
 
       // this.props.history.push("/");
     } catch (err) {
@@ -51,7 +44,7 @@ class AddFriendForm extends Component {
   render() {
     return (
       <div>
-        <header className="header-footer">Add Friend</header>
+        <header className="header-footer">Modify User</header>
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <div className="col-sm-12">
@@ -59,7 +52,7 @@ class AddFriendForm extends Component {
                 type="text"
                 className="form-control"
                 placeholder="Name"
-                value={this.state.name}
+                value={this.state.user.name}
                 name="name"
                 onChange={this.handleChange}
               />
@@ -107,4 +100,12 @@ class AddFriendForm extends Component {
   }
 }
 
-export default AddFriendForm;
+// map here
+// {const scoreUi = student.scores.map((score, idx) => (
+//   <Score scores={score} />
+//   ))}
+
+//   return <div>hello Profile</div>;
+// }
+
+export default ProfileUpdateForm;

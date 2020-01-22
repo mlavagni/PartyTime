@@ -15,7 +15,7 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
 import Home from "./components/Home/Home";
-import Profile from "./components/Profile/Profile";
+import Profile from "./components/Profile/ProfileUpdateForm";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Friends from "./pages/Friends/Friends";
@@ -72,7 +72,11 @@ class App extends Component {
           // user={this.state.user}
           // } */}
           <Route path="/home" exact render={props => <Home />} />
-          <Route path="/profile" exact render={props => <Profile />} />
+          <Route
+            path="/profile"
+            exact
+            render={props => <Profile user={this.state.user} />}
+          />
           <Route
             path="/friends"
             exact

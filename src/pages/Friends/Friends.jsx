@@ -26,6 +26,17 @@ class Friend extends Component {
         });
       });
   }
+
+  handleDelete = () => {
+    this.setState({ user: userService.deleteFriend() });
+  };
+
+  handleUpdateState = newFriend => {
+    this.setState(prevState => ({
+      friends: [...prevState.friends, newFriend]
+    }));
+  };
+
   render() {
     let friends = null;
     if (this.state.friends.length) {
@@ -48,7 +59,7 @@ class Friend extends Component {
     return (
       <div>
         <h1>friends</h1>
-        <FriendsForm user={this.props.user} />
+        <FriendsForm user={this.props.user} friends={this.handleUpdateState} />
         <table>
           <thead>
             <tr>

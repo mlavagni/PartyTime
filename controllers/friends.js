@@ -23,7 +23,8 @@ async function createFriend(req, res) {
     user.friends.push(req.body.friend);
 
     await user.save();
-    return res.status(201).json("Data save");
+    console.log(user.friends[user.friends.length - 1]);
+    return res.status(201).json(user.friends[user.friends.length - 1]);
   } catch (err) {
     // Error
     res.status(400).json(err);

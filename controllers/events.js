@@ -23,9 +23,6 @@ async function createEvent(req, res) {
     const user = await User.findOne({ email: req.body.userEmail });
 
     user.events.push(req.body.event);
-    // console.log("***user*********");
-    // console.log(user);
-    // console.log("************");
     await user.save();
     return res.status(201).json("Data save");
   } catch (err) {
