@@ -30,46 +30,58 @@ const NavBarPage = props => {
 
     // <div className={classes.root}>
     <AppBar position="static">
-      <Toolbar>
-        <Link to="/home" className="NavBar-link">
-          Home
-        </Link>
-
-        {props.user ? (
-          <div>
-            <Link to="/profile" className="NavBar-link">
-              Profile
+      <Toolbar className={style.navBarBackground}>
+        <ul className={style.ulContainer}>
+          <li className={style.liContainer}>
+            <Link to="/home" className={style.liNavbarLink}>
+              Home
             </Link>
-
-            <Link to="/friends" className="NavBar-link">
-              Friends
-            </Link>
-
-            <Link to="/events" className="NavBar-link">
-              Events
-            </Link>
-            <Link to="/">
-              {/* <li className="nav-item"> */}
-              <div
-                className={`nav-link ${style.li}`}
-                onClick={props.handleLogout}
-              >
-                Logout
-              </div>
-              {/* </li> */}
-            </Link>
-          </div>
-        ) : (
-          <div>
-            <Link to="/login" className="NavBar-link">
-              LOG IN
-            </Link>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <Link to="/signup" className="NavBar-link">
-              SIGN UP
-            </Link>
-          </div>
-        )}
+          </li>
+          {props.user ? (
+            <div>
+              <li className={style.liContainer}>
+                <Link to="/profile" className={style.liNavbarLink}>
+                  Profile
+                </Link>
+              </li>
+              <li className={style.liContainer}>
+                <Link to="/friends" className={style.liNavbarLink}>
+                  Friends
+                </Link>
+              </li>
+              <li className={style.liContainer}>
+                <Link to="/events" className={style.liNavbarLink}>
+                  Events
+                </Link>
+              </li>
+              <li className={style.liContainerRight}>
+                <Link to="/">
+                  {/* <li className="nav-item"> */}
+                  <div
+                    className={style.liNavbarLink}
+                    onClick={props.handleLogout}
+                  >
+                    Logout
+                  </div>
+                  {/* </li> */}
+                </Link>
+              </li>
+            </div>
+          ) : (
+            <div>
+              <li className={style.liContainerRight}>
+                <Link to="/login" className={style.liNavbarLink}>
+                  LOG IN
+                </Link>
+              </li>
+              <li className={style.liContainerRight}>
+                <Link to="/signup" className={style.liNavbarLink}>
+                  SIGN UP
+                </Link>
+              </li>
+            </div>
+          )}
+        </ul>
       </Toolbar>
     </AppBar>
   );

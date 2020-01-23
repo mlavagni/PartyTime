@@ -62,9 +62,8 @@ class App extends Component {
           <header className="App-header">
             <Header />
           </header>
+
           <NavBarPage user={this.state.user} handleLogout={this.handleLogout} />
-          {/* <Friends /> */}
-          {/* <Events /> */}
         </div>
         <Switch>
           {/* <Route exact path='/' render={() => */}

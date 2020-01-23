@@ -34,6 +34,7 @@ async function createFriend(req, res) {
 async function deleteFriend(req, res) {
   try {
     const user = await User.findOne({ email: req.body.userEmail });
+    console.log("sdds " + user);
     await user.friends.id(req.params.id).remove();
     await user.save();
     return res.status(201).json("Friend deleted");

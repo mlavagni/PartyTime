@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
 import FriendsForm from "../../components/Friends/AddFriendForm";
+import Style from "./Friends.module.css";
 // import FriendList from "../../components/Friends/AddFriendForm";
 
 class Friend extends Component {
@@ -27,9 +28,25 @@ class Friend extends Component {
       });
   }
 
-  handleDelete = () => {
-    this.setState({ user: userService.deleteFriend() });
+  handleDeleteFriend = (id, idx) => {
+    return fetch(`/api/friends/${id}`, {
+      method: "DELETE",
+      headers: new Headers({ "Content-Type": "application/json" }),
+      body: JSON.stringify({
+        userEmail: this.props.user.email
+      })
+    }).then(res => res.json());
+    // let array = [...this.state.fiends]; // make a separate copy of the array
+    // var index = array.indexOf(e.target.value);
+    // if (index !== -1) {
+    //   array.splice(index, 1);
+    //   this.setState({ friends: array });
+    // }
   };
+
+  // handleDelete = () => {
+  //   this.setState({ user: userService.deleteFriend() });
+  // };
 
   handleUpdateState = newFriend => {
     this.setState(prevState => ({
@@ -43,12 +60,14 @@ class Friend extends Component {
       friends = this.state.friends.map((ele, idx) => {
         return (
           // <div key={idx}>
-          <tr key={idx}>
+          <tr className={Style.tableTr} key={idx}>
             <td>{ele.name}</td>
             <td>{ele.email}</td>
             <td>{ele.phone}</td>
             <td>
-              <button>x</button>
+              <button onClick={() => this.handleDeleteFriend(ele._id, idx)}>
+                x
+              </button>
             </td>
           </tr>
           // </div>
@@ -58,19 +77,24 @@ class Friend extends Component {
 
     return (
       <div>
-        <h1>friends</h1>
-        <FriendsForm user={this.props.user} friends={this.handleUpdateState} />
-        <table>
-          <thead>
-            <tr>
-              <th>First Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>{friends}</tbody>
-        </table>
+        <h1>Friends</h1>
+        <div className={Style.Container}>
+          <FriendsForm
+            user={this.props.user}
+            friends={this.handleUpdateState}
+          />
+          <table className={Style.tableFriends}>
+            <thead>
+              <tr className={Style.tableHeader}>
+                <th>First Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>{friends}</tbody>
+          </table>
+        </div>
       </div>
     );
   }

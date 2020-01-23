@@ -1,0 +1,30 @@
+.Container {
+  height: 90%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 10px;
+  flex-direction: row-reverse;
+}
+
+.tableFriends {
+  margin-right: 40px;
+  border-collapse: collapse;
+  border: 2px solid #063f6b;
+  border-radius: 10px;
+}
+
+.tableHeader {
+  background-color: #063f6b;
+}
+
+.tableTr {
+  border: 2px solid #063f6b;
+  /* border-radius: 10px; */
+}
+
+.tableTr:hover {
+  background-color: #063f6b;
+  opacity: 0.6;
+}

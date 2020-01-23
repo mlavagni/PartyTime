@@ -1,3 +1,41 @@
-.li {
+.ulContainer {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  background-color: #063f6b;
+}
+
+.liContainer {
+  float: left;
+}
+
+.liContainerRight {
+  float: right;
+}
+
+.liNavbarLink {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.liNavbarLink:hover:not(.active) {
+  background-color: lightgray;
+  opacity: 0.3;
   color: black;
+  border-radius: 10px;
+}
+
+.active {
+  background-color: #4caf50;
+}
+
+.navBarBackground {
+  background-color: #063f6b;
+
+  height: 3px;
 }

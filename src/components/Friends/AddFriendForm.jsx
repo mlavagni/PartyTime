@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
+import Style from "./AddFriendForm.module.css";
 
 class AddFriendForm extends Component {
   state = {
@@ -11,6 +12,8 @@ class AddFriendForm extends Component {
 
   handleChange = e => {
     // this.props.updateMessage("");
+    console.log(e.target.value);
+    console.log(e.target.name);
     this.setState({
       // Using ES2015 Computed Property Names
       [e.target.name]: e.target.value
@@ -50,55 +53,59 @@ class AddFriendForm extends Component {
 
   render() {
     return (
-      <div>
-        <header className="header-footer">Add Friend</header>
+      <div className={Style.formcontainer}>
+        <header className="header-footer">
+          <h1 className="title">Add Friend</h1>
+        </header>
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Name"
-                value={this.state.name}
-                name="name"
-                onChange={this.handleChange}
-              />
+          <div className={Style.divimput}>
+            <div className="form-group">
+              <div className="col-sm-12">
+                <input
+                  type="text"
+                  className={Style.formimput}
+                  placeholder="Name"
+                  value={this.state.name}
+                  name="name"
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Email"
-                value={this.state.email}
-                name="email"
-                onChange={this.handleChange}
-              />
+            <div className="form-group">
+              <div className="col-sm-12">
+                <input
+                  type="email"
+                  className={Style.formimput}
+                  placeholder="Email"
+                  value={this.state.email}
+                  name="email"
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
-                type="phone"
-                className="form-control"
-                placeholder="Phone"
-                value={this.state.phone}
-                name="phone"
-                onChange={this.handleChange}
-              />
+            <div className="form-group">
+              <div className="col-sm-12">
+                <input
+                  type="phone"
+                  className={Style.formimput}
+                  placeholder="Phone"
+                  value={this.state.phone}
+                  name="phone"
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button
-                className="btn btn-default"
-                disabled={this.isFormInvalid()}
-              >
-                Save
-              </button>
-              &nbsp;&nbsp;
+            <div className="form-group">
+              <div className="col-sm-12 text-center">
+                <button
+                  className="btn btn-default"
+                  disabled={this.isFormInvalid()}
+                >
+                  Save
+                </button>
+                &nbsp;&nbsp;
+              </div>
             </div>
           </div>
         </form>
