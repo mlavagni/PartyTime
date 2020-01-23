@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
 import Style from "./AddFriendForm.module.css";
+import StyleO from "./SignupForm.module.css";
 
 class AddFriendForm extends Component {
   state = {
@@ -36,7 +37,6 @@ class AddFriendForm extends Component {
         })
         .then(data => {
           this.props.friends(data);
-          console.log(data);
         });
 
       // this.props.history.push("/");
@@ -63,7 +63,8 @@ class AddFriendForm extends Component {
               <div className="col-sm-12">
                 <input
                   type="text"
-                  className={Style.formimput}
+                  // className={Style.formimput}
+                  className={StyleO.imputText}
                   placeholder="Name"
                   value={this.state.name}
                   name="name"
@@ -75,7 +76,8 @@ class AddFriendForm extends Component {
               <div className="col-sm-12">
                 <input
                   type="email"
-                  className={Style.formimput}
+                  className={StyleO.imputText}
+                  // className={Style.formimput}
                   placeholder="Email"
                   value={this.state.email}
                   name="email"
@@ -87,7 +89,8 @@ class AddFriendForm extends Component {
               <div className="col-sm-12">
                 <input
                   type="phone"
-                  className={Style.formimput}
+                  // className={Style.formimput}
+                  className={StyleO.imputText}
                   placeholder="Phone"
                   value={this.state.phone}
                   name="phone"
@@ -99,7 +102,7 @@ class AddFriendForm extends Component {
             <div className="form-group">
               <div className="col-sm-12 text-center">
                 <button
-                  className="btn btn-default"
+                  className={StyleO.submitButton}
                   disabled={this.isFormInvalid()}
                 >
                   Save

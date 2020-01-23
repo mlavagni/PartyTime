@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
+import Style from "./AddEventForm.module.css";
 
 class AddEventForm extends Component {
   state = {
@@ -48,90 +49,94 @@ class AddEventForm extends Component {
 
   render() {
     return (
-      <div>
-        <header className="header-footer">Add Event</header>
+      <div className={Style.formcontainer}>
+        <header className="header-footer">
+          <h1 className="title">Add Event</h1>
+        </header>
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Name"
-                value={this.state.name}
-                name="name"
-                onChange={this.handleChange}
-              />
+          <div className={Style.divimput}>
+            <div className="form-group">
+              <div className="col-sm-12">
+                <input
+                  type="text"
+                  className={Style.formimput}
+                  placeholder="Name"
+                  value={this.state.name}
+                  name="name"
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
-                type="date"
-                className="form-control"
-                placeholder="Date"
-                value={this.state.date}
-                name="date"
-                onChange={this.handleChange}
-              />
+            <div className="form-group">
+              <div className="col-sm-12">
+                <input
+                  type="date"
+                  className={Style.formimput}
+                  placeholder="Date"
+                  value={this.state.date.value}
+                  name="date"
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Start Time"
-                value={this.state.startTime}
-                name="startTime"
-                onChange={this.handleChange}
-              />
+            <div className="form-group">
+              <div className="col-sm-12">
+                <input
+                  type="text"
+                  className={Style.formimput}
+                  placeholder="Start Time"
+                  value={this.state.startTime}
+                  name="startTime"
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="End Time"
-                value={this.state.endTime}
-                name="endTime"
-                onChange={this.handleChange}
-              />
+            <div className="form-group">
+              <div className="col-sm-12">
+                <input
+                  type="text"
+                  className={Style.formimput}
+                  placeholder="End Time"
+                  value={this.state.endTime}
+                  name="endTime"
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Address"
-                value={this.state.address}
-                name="address"
-                onChange={this.handleChange}
-              />
+            <div className="form-group">
+              <div className="col-sm-12">
+                <input
+                  type="text"
+                  className={Style.formimput}
+                  placeholder="Address"
+                  value={this.state.address}
+                  name="address"
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Access Code"
-                value={this.state.accessCode}
-                name="accessCode"
-                onChange={this.handleChange}
-              />
+            <div className="form-group">
+              <div className="col-sm-12">
+                <input
+                  type="text"
+                  className={Style.formimput}
+                  placeholder="Access Code"
+                  value={this.state.accessCode}
+                  name="accessCode"
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button
-                className="btn btn-default"
-                disabled={this.isFormInvalid()}
-              >
-                Save
-              </button>
-              &nbsp;&nbsp;
+            <div className="form-group">
+              <div className="col-sm-12 text-center">
+                <button
+                  className="btn btn-default"
+                  disabled={this.isFormInvalid()}
+                >
+                  Save
+                </button>
+                &nbsp;&nbsp;
+              </div>
             </div>
           </div>
         </form>

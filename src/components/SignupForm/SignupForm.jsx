@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
+import Style from "./SignupForm.module.css";
 
 class SignupForm extends Component {
   state = {
@@ -44,14 +45,14 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className={Style.divContainer}>
         <header className="header-footer">Sign Up</header>
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <div className="col-sm-12">
               <input
                 type="text"
-                className="form-control"
+                className={Style.imputText}
                 placeholder="Name"
                 value={this.state.name}
                 name="name"
@@ -63,7 +64,7 @@ class SignupForm extends Component {
             <div className="col-sm-12">
               <input
                 type="email"
-                className="form-control"
+                className={Style.imputText}
                 placeholder="Email"
                 value={this.state.email}
                 name="email"
@@ -75,7 +76,7 @@ class SignupForm extends Component {
             <div className="col-sm-12">
               <input
                 type="phone"
-                className="form-control"
+                className={Style.imputText}
                 placeholder="Phone"
                 value={this.state.phone}
                 name="phone"
@@ -87,7 +88,7 @@ class SignupForm extends Component {
             <div className="col-sm-12">
               <input
                 type="password"
-                className="form-control"
+                className={Style.imputText}
                 placeholder="Password"
                 value={this.state.password}
                 name="password"
@@ -99,7 +100,7 @@ class SignupForm extends Component {
             <div className="col-sm-12">
               <input
                 type="password"
-                className="form-control"
+                className={Style.imputText}
                 placeholder="Confirm Password"
                 value={this.state.passwordConf}
                 name="passwordConf"
@@ -110,7 +111,7 @@ class SignupForm extends Component {
           <div className="form-group">
             <div className="col-sm-12 text-center">
               <button
-                className="btn btn-default"
+                className={Style.submitButton}
                 disabled={this.isFormInvalid()}
               >
                 Sign Up

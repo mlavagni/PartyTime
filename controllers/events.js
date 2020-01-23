@@ -16,12 +16,14 @@ async function listEvents(req, res) {
 }
 
 async function createEvent(req, res) {
-  // console.log("****req.body********");
-  // console.log(req.body);
-  // console.log("************");
+  console.log("****req.body********");
+  console.log(req.body);
+  console.log("************");
   try {
     const user = await User.findOne({ email: req.body.userEmail });
-
+    console.log("****req.body event********");
+    console.log(req.body.event);
+    console.log("************");
     user.events.push(req.body.event);
     await user.save();
     return res.status(201).json("Data save");

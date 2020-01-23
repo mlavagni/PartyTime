@@ -1,12 +1,15 @@
 import React from "react";
 
-function Home() {
-  // map here
-  // {const scoreUi = student.scores.map((score, idx) => (
-  //   <Score scores={score} />
-  //   ))}
-
-  return <div>hello Home</div>;
+function Home(props) {
+  return (
+    <div>
+      <h1>Ready to Party!!!</h1>
+      {/* <h1>{props.user.name != null ? props.user.name : "Log In to start"}</h1> */}
+      <dir>
+        <img src="/background2.png" alt="background img" />
+      </dir>
+    </div>
+  );
 }
 
 export default Home;

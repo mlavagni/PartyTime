@@ -36,14 +36,14 @@ class Friend extends Component {
         userEmail: this.props.user.email
       })
     }).then(res => res.json());
-    // let array = [...this.state.fiends]; // make a separate copy of the array
-    // var index = array.indexOf(e.target.value);
-    // if (index !== -1) {
-    //   array.splice(index, 1);
-    //   this.setState({ friends: array });
-    // }
   };
 
+  // let array = [...this.state.fiends]; // make a separate copy of the array
+  // var index = array.indexOf(e.target.value);
+  // if (index !== -1) {
+  //   array.splice(index, 1);
+  //   this.setState({ friends: array });
+  // }
   // handleDelete = () => {
   //   this.setState({ user: userService.deleteFriend() });
   // };

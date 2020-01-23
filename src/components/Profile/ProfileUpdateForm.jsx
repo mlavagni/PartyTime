@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
+import Style from "./ProfileUpdate.module.css";
 
 const ProfileUpdateForm = props => {
-  //   handleChange = e => {
-  //     // this.props.updateMessage("");
-  //     this.setState({
-  //       // Using ES2015 Computed Property Names
-  //       [e.target.name]: e.target.value
-  //     });
-  //   };
+  // handleChange = e => {
+  //   // this.props.updateMessage("");
+  //   this.setState({
+  //     // Using ES2015 Computed Property Names
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
 
   // handleSubmit = async e => {
   //   e.preventDefault();
@@ -36,57 +37,58 @@ const ProfileUpdateForm = props => {
   // }
 
   return (
-    <div>dfdf</div>
-    //     <div>
-    //       <header className="header-footer">Modify User</header>
-    //       <form className="form-horizontal" onSubmit={this.handleSubmit}>
-    //         <div className="form-group">
-    //           <div className="col-sm-12">
-    //             <input
-    //               type="text"
-    //               className="form-control"
-    //               placeholder="Name"
-    //               value={this.state.user.name}
-    //               name="name"
-    //               onChange={this.handleChange}
-    //             />
-    //           </div>
-    //         </div>
-    //         <div className="form-group">
-    //           <div className="col-sm-12">
-    //             <input
-    //               type="email"
-    //               className="form-control"
-    //               placeholder="Email"
-    //               value={this.state.email}
-    //               name="email"
-    //               onChange={this.handleChange}
-    //             />
-    //           </div>
-    //         </div>
-    //         <div className="form-group">
-    //           <div className="col-sm-12">
-    //             <input
-    //               type="phone"
-    //               className="form-control"
-    //               placeholder="Phone"
-    //               value={this.state.phone}
-    //               name="phone"
-    //               onChange={this.handleChange}
-    //             />
-    //           </div>
-    //         </div>
+    <div className={Style.divContainer}>
+      <header className="header-footer">Modify User</header>
+      <form className="form-horizontal">
+        {/* onSubmit={this.handleSubmit} */}
+        <div className="form-group">
+          <div className="col-sm-12">
+            <input
+              type="text"
+              className={Style.imputText}
+              placeholder="Name"
+              value={props.user.name}
+              name="name"
+              // onChange={this.handleChange}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="col-sm-12">
+            <input
+              type="email"
+              className={Style.imputText}
+              placeholder="Email"
+              value={props.user.email}
+              name="email"
+              // onChange={this.handleChange}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="col-sm-12">
+            <input
+              type="phone"
+              className={Style.imputText}
+              placeholder="Phone"
+              value={props.user.phone}
+              name="phone"
+              // onChange={this.handleChange}
+            />
+          </div>
+        </div>
 
-    //         <div className="form-group">
-    //           <div className="col-sm-12 text-center">
-    //             <button className="btn btn-default" disabled={this.isFormInvalid()}>
-    //               Save
-    //             </button>
-    //             &nbsp;&nbsp;
-    //           </div>
-    //         </div>
-    //       </form>
-    //     </div>
+        <div className="form-group">
+          <div className="col-sm-12 text-center">
+            <button className={Style.submitButton}>
+              {/* disabled={this.isFormInvalid()} */}
+              Save
+            </button>
+            &nbsp;&nbsp;
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };
 

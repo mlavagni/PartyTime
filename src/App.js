@@ -70,7 +70,11 @@ class App extends Component {
           {/* // handleLogout={this.handleLogout}
           // user={this.state.user}
           // } */}
-          <Route path="/home" exact render={props => <Home />} />
+          <Route
+            path="/home"
+            exact
+            render={props => <Home user={this.state.user} />}
+          />
           <Route
             path="/profile"
             exact

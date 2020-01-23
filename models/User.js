@@ -23,10 +23,9 @@ let eventsSchema = new Schema({
     type: String,
     required: true
   },
+
   date: {
-    date: {
-      type: Date
-    }
+    type: Date
   },
   startTime: {
     type: String
