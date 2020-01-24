@@ -29,13 +29,25 @@ class Friend extends Component {
   }
 
   handleDeleteFriend = (id, idx) => {
-    return fetch(`/api/friends/${id}`, {
+    console.log("before dele runs");
+    fetch(`/api/friends/${id}`, {
       method: "DELETE",
       headers: new Headers({ "Content-Type": "application/json" }),
       body: JSON.stringify({
-        userEmail: this.props.user.email
+        userEmail: this.props.user.email,
+        test: "test message"
       })
-    }).then(res => res.json());
+    })
+      .then(response => {
+        console.log("awaitin response");
+        return response.json();
+      })
+      .then(jsonData => {
+        console.log(jsonData);
+        this.setState({
+          friends: jsonData
+        });
+      });
   };
 
   // let array = [...this.state.fiends]; // make a separate copy of the array

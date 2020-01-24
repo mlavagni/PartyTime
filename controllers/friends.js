@@ -35,9 +35,10 @@ async function deleteFriend(req, res) {
   try {
     const user = await User.findOne({ email: req.body.userEmail });
     console.log("sdds " + user);
+    console.log(req.body.test);
     await user.friends.id(req.params.id).remove();
     await user.save();
-    return res.status(201).json("Friend deleted");
+    return res.status(201).json(user.friends);
   } catch (err) {
     // Error
     res.status(400).json(err);

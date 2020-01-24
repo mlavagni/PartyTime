@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
 import EventsForm from "../../components/Events/AddEventForm";
-import Moment from "moment";
+// import Moment from "moment";
 import Style from "./Events.module.css";
 // import EventList from "../../components/Events/AddEventForm";
 
@@ -46,8 +46,8 @@ class Events extends Component {
           // <div key={idx}>
           <tr className={Style.tableTr} key={idx}>
             <td>{ele.name}</td>
-            {/* {Moment(ele.date).format('YYYY-MM-DD')} */}
-            <td>{Moment(ele.date).format("YYYY-MM-DD")}</td>
+            {ele.date}
+            {/* <td>{Moment(ele.date).format("YYYY-MM-DD")}</td> */}
             <td>{ele.startTime}</td>
             <td>{ele.endTime}</td>
             <td>{ele.address}</td>
