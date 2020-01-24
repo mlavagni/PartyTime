@@ -19,7 +19,7 @@ The purpose of the app is to be able to add events create friends to invite to t
 
 ## Planin
 
-    [Trello] https://trello.com/b/z20R33jd/unit-4-project
+    [Trello](https://trello.com/b/z20R33jd/unit-4-project)
 
 ## Wireframes
 
@@ -30,7 +30,7 @@ The purpose of the app is to be able to add events create friends to invite to t
 
 ## ERD
 
-![ERD](public/PartyTime ERD.png)
+![ERD](public/PartyTimeERD.png)
 
 ## Technologies Used
 
