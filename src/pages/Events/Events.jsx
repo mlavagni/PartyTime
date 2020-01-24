@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
 import EventsForm from "../../components/Events/AddEventForm";
-// import Moment from "moment";
+import Moment from "moment";
 import Style from "./Events.module.css";
 // import EventList from "../../components/Events/AddEventForm";
 
@@ -29,6 +29,12 @@ class Events extends Component {
       });
   }
 
+  handleUpdateState = newEvent => {
+    this.setState(prevState => ({
+      events: [...prevState.events, newEvent]
+    }));
+  };
+
   handleDeleteFriend = (id, idx) => {
     return fetch(`/api/events/${id}`, {
       method: "DELETE",
@@ -36,18 +42,28 @@ class Events extends Component {
       body: JSON.stringify({
         userEmail: this.props.user.email
       })
-    }).then(res => res.json());
+    })
+      .then(response => {
+        console.log("awaitin response");
+        return response.json();
+      })
+      .then(jsonData => {
+        console.log(jsonData);
+        this.setState({
+          events: jsonData
+        });
+      });
   };
+
   render() {
     let events = null;
     if (this.state.events.length) {
       events = this.state.events.map((ele, idx) => {
         return (
-          // <div key={idx}>
           <tr className={Style.tableTr} key={idx}>
             <td>{ele.name}</td>
-            {ele.date}
-            {/* <td>{Moment(ele.date).format("YYYY-MM-DD")}</td> */}
+            {/* <td>{ele.date}</td> */}
+            <td>{Moment(ele.date).format("YYYY-MM-DD")}</td>
             <td>{ele.startTime}</td>
             <td>{ele.endTime}</td>
             <td>{ele.address}</td>
@@ -58,7 +74,6 @@ class Events extends Component {
               </button>
             </td>
           </tr>
-          // </div>
         );
       });
     }
@@ -67,7 +82,7 @@ class Events extends Component {
       <div>
         <h1>Events</h1>
         <div className={Style.Container}>
-          <EventsForm user={this.props.user} />
+          <EventsForm user={this.props.user} events={this.handleUpdateState} />
           <table className={Style.tableFriends}>
             <thead>
               <tr className={Style.tableHeader}>

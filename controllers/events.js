@@ -16,17 +16,12 @@ async function listEvents(req, res) {
 }
 
 async function createEvent(req, res) {
-  console.log("****req.body********");
-  console.log(req.body);
-  console.log("************");
   try {
     const user = await User.findOne({ email: req.body.userEmail });
-    console.log("****req.body event********");
-    console.log(req.body.event);
-    console.log("************");
+
     user.events.push(req.body.event);
     await user.save();
-    return res.status(201).json("Data save");
+    return res.status(201).json(user.events[user.events.length - 1]);
   } catch (err) {
     // Error
     res.status(400).json(err);
@@ -38,7 +33,7 @@ async function deleteEvent(req, res) {
     const user = await User.findOne({ email: req.body.userEmail });
     await user.events.id(req.params.id).remove();
     await user.save();
-    return res.status(201).json("Event deleted");
+    return res.status(201).json(user.events);
   } catch (err) {
     // Error
     res.status(400).json(err);

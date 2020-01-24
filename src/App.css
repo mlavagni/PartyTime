@@ -26,11 +26,13 @@ body {
 
 footer {
   /* width: 100vw; */
+  margin-top: 20px;
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -50;
   right: 0;
-  background-color: red;
+  background-color: #063f6b;
+  height: 25px;
 }
 
 img {

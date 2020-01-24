@@ -33,7 +33,13 @@ class AddEventForm extends Component {
           event: this.state,
           userEmail: this.props.user.email
         })
-      });
+      })
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          this.props.events(data);
+        });
 
       // this.props.history.push("/");
     } catch (err) {
