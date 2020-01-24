@@ -19,7 +19,7 @@ The purpose of the app is to be able to add events create friends to invite to t
 
 ## Planning
 
-    [Trello](https://trello.com)
+    [Trello](https://trello.com/b/z20R33jd/unit-4-project)
 
 ## Wireframes
 

@@ -83,7 +83,7 @@ class Events extends Component {
         <h1>Events</h1>
         <div className={Style.Container}>
           <EventsForm user={this.props.user} events={this.handleUpdateState} />
-          <table className={Style.tableFriends}>
+          <table className={Style.tableEvent}>
             <thead>
               <tr className={Style.tableHeader}>
                 <th>Event Name</th>
@@ -92,6 +92,7 @@ class Events extends Component {
                 <th>End Time</th>
                 <th>Address</th>
                 <th>Access Code</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>{events}</tbody>

@@ -8,15 +8,17 @@
   flex-direction: row-reverse;
 }
 
-.tableFriends {
+.tableEvent {
   margin-right: 40px;
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
   border: 2px solid #063f6b;
   border-radius: 10px;
+  padding: 10px;
 }
 
 .tableHeader {
   background-color: #063f6b;
+  color: white;
 }
 
 .tableTr {
@@ -27,4 +29,5 @@
 .tableTr:hover {
   background-color: #063f6b;
   opacity: 0.6;
+  color: white;
 }
