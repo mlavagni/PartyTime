@@ -50,16 +50,6 @@ class Friend extends Component {
       });
   };
 
-  // let array = [...this.state.fiends]; // make a separate copy of the array
-  // var index = array.indexOf(e.target.value);
-  // if (index !== -1) {
-  //   array.splice(index, 1);
-  //   this.setState({ friends: array });
-  // }
-  // handleDelete = () => {
-  //   this.setState({ user: userService.deleteFriend() });
-  // };
-
   handleUpdateState = newFriend => {
     this.setState(prevState => ({
       friends: [...prevState.friends, newFriend]

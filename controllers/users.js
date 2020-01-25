@@ -10,6 +10,22 @@ module.exports = {
   // update: updateUser
 };
 
+// async function updateUser(req, res, next) {
+//   try {
+//     const user = await User.findById(req.user).exec(function(err, user) {
+//       user.name = req.body.name;
+//       user.phone = req.body.phone;
+//       user.email = req.body.email;
+//     await user.save(function(err) {
+//       res.status(201).json("Save");
+//       });
+//     });
+//   } catch (err) {
+//     // Probably a duplicate email
+//     res.status(400).json(err);
+//   }
+// }
+
 async function login(req, res) {
   try {
     const user = await User.findOne({ email: req.body.email });
@@ -17,7 +33,7 @@ async function login(req, res) {
     if (!user) return res.status(401).json({ err: "bad credentials" });
     user.comparePassword(req.body.pw, (err, isMatch) => {
       if (isMatch) {
-        console, login("entro al match");
+        // console, login("entro al match");
         const token = createJWT(user);
         res.json({ token });
       } else {
