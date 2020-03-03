@@ -5,9 +5,10 @@ function Home(props) {
     <div>
       <h1>Ready to Party!!!</h1>
       {/* <h1>{props.user.name != null ? props.user.name : "Log In to start"}</h1> */}
-      <dir>
+
+      <div>
         <img src="/background2.png" alt="background img" />
-      </dir>
+      </div>
     </div>
   );
 }
